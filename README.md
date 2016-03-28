@@ -30,7 +30,7 @@ The following browsers have passed all of the automated Cookies.js tests:
 ## API Reference
 
 **Properties**  
-[pechivo.expires](#expires)  
+[expires](#pechivo.expires)  
 [pechivo.path](#path)
 [pechivo.domain](#domain)
 [pechivo.secure](#secure)
@@ -74,7 +74,12 @@ Set default options for all new cookies
 ```javascript
 
 // Initialize options 
-pechivo.initialize({expires : 3600, path : '/', domain : 'www.example.com',secure : true});
+pechivo.initialize({
+    expires : 3600, 
+    path : '/', 
+    domain : 'www.example.com',
+    secure : true
+});
 
 ``` 
 And now all new cookies withot options has this options as default.
