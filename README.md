@@ -30,7 +30,7 @@ The following browsers have passed all of the automated Cookies.js tests:
 ## API Reference
 
 **Properties**  
-[Expires](#expires)  
+[Expires](#expires)
 [Path](#path)
 [Domain](#domain)
 [Secure](#secure)
@@ -59,7 +59,7 @@ pechivo.expires = new Date(2020, 0, 1); // Expires at Wed Jan 01 2020 00:00:00 G
 ```
 
 #### Path
-A string value of the path of the cookie. By default is _'/'_.
+A string value of the path of the cookie. By default is '_/_'.
 
 **Example Usage**
 ```javascript
