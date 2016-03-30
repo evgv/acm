@@ -23,21 +23,21 @@ The following browsers have passed all of the automated Cookies.js tests:
 
 ## Getting the Library
 #### Direct downloads
-[pechivo.min.js] - [v1.0.0 Minified](https://raw.githubusercontent.com/evgv/pechivo/master/src/build/pechivo.min.js) (~ 2.6 KB)
-[pechivo.js] - [v1.0.0 Unminified](https://raw.githubusercontent.com/evgv/pechivo/master/src/build/pechivo.js) (~ 10.4 KB)
+[v1.0.0 Minified](https://raw.githubusercontent.com/evgv/pechivo/master/src/build/pechivo.min.js) (~ 2.6 KB)                          
+[v1.0.0 Unminified](https://raw.githubusercontent.com/evgv/pechivo/master/src/build/pechivo.js) (~ 10.4 KB)
 
 
 ## API Reference
 
 **Properties**  
-[Expires](#expires)
-[Path](#path)
-[Domain](#domain)
-[Secure](#secure)
+[Expires](#expires)                                                                                                                   
+[Path](#path)                                                                                                                         
+[Domain](#domain)                                                                                                                     
+[Secure](#secure)                                                                                                                     
 
-**Additional properties**
-[Debug](#debyg)
-[Encode](#encode)
+**Additional properties**                                                                                                             
+[Debug](#debyg)                                                                                                                       
+[Encode](#encode)                                                                                                                     
 
 **Methods**  
 [pechivo.initialize(options)](#pechivo-initialize)  
@@ -59,7 +59,7 @@ pechivo.expires = new Date(2020, 0, 1); // Expires at Wed Jan 01 2020 00:00:00 G
 ```
 
 #### Path
-A string value of the path of the cookie. By default is '_/_'.
+A string value of the path of the cookie. By default is '/'.
 
 **Example Usage**
 ```javascript
