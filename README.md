@@ -23,17 +23,21 @@ The following browsers have passed all of the automated Cookies.js tests:
 
 ## Getting the Library
 #### Direct downloads
-- [v1.0.0 Minified]() (~ KB gzipped)
-- [v1.0.0 Unminified]() (~ KB gzipped)
+[pechivo.min.js] - [v1.0.0 Minified](https://raw.githubusercontent.com/evgv/pechivo/master/src/build/pechivo.min.js) (~ 2.6 KB)
+[pechivo.js] - [v1.0.0 Unminified](https://raw.githubusercontent.com/evgv/pechivo/master/src/build/pechivo.js) (~ 10.4 KB)
 
 
 ## API Reference
 
 **Properties**  
-[expires](#pechivo.expires)  
-[pechivo.path](#path)
-[pechivo.domain](#domain)
-[pechivo.secure](#secure)
+[Expires](#expires)  
+[Path](#path)
+[Domain](#domain)
+[Secure](#secure)
+
+**Additional properties**
+[Debug](#debyg)
+[Encode](#encode)
 
 **Methods**  
 [pechivo.initialize(options)](#pechivo-initialize)  
@@ -44,40 +48,80 @@ The following browsers have passed all of the automated Cookies.js tests:
 
 ### Properties
 
-#### pechivo.expires
-*Alias: pechivo.expires*
+#### Expires
+A number (of seconds), a number parsable string, or a `Date` object of when the cookie will expire. By default is 0 (session cookie).
 
-#### pechivo.path
-*Alias:  pechivo.path*
+**Example Usage**
+```javascript
+pechivo.expires = 3600; // Expires number format 1 hour
+pechivo.expires = '3600'; // Expires string format 1 hour
+pechivo.expires = new Date(2020, 0, 1); // Expires at Wed Jan 01 2020 00:00:00 GMT+0200
+```
 
-#### pechivo.domain
-*Alias: pechivo.domain*
+#### Path
+A string value of the path of the cookie. By default is _'/'_.
 
-#### pechivo.secure
-*Alias: pechivo.secure*
+**Example Usage**
+```javascript
+pechivo.path = '/'; // Path for all pages
+pechivo.path = '/cart'; // Path only for /cart page
+pechivo.path = '/success'; // Path only for /success page
+```
 
-#### pechivo.encode
-*Alias: pechivo.encode*
+#### Domain
+A string value of the domain of the cookie. By default is equal to current domain. 
 
-#### pechivo.debug
-*Alias: pechivo.debug*
+**Example Usage**
+```javascript
+pechivo.domain = 'www.example.com'; // Set www.example.com as default domain
+```
+#### Secure
+A boolean value of whether or not the cookie should only be available over SSL. By default is _false_.
 
+**Example Usage**
+```javascript
+pechivo.secure = true; // enable
+pechivo.secure = false; // disable
+```
+### Additional properties
+
+#### Debug
+Enable debug option set show in console information about create/delee cookie.
+
+**Example Usage**
+```javascript
+pechivo.debug = false; // disable
+pechivo.debug = true; // enable
+```
+#### Encode
+Set encode cookie _encodeUri()_ value (encode by default), you can disable/enable this option.
+
+**Example Usage**
+```javascript
+pechivo.encode = false; // disable
+pechivo.encode = true; // enable
+```
 
 ### Methods
 
 #### pechivo.initialize(options)
-*Alias: pechivo.initialize(options)*
 
 Set default options for all new cookies
 
 **Example Usage**
 ```javascript
 
-// Initialize options 
+// Initialize all options 
 pechivo.initialize({
     expires : 3600, 
     path : '/', 
     domain : 'www.example.com',
+    secure : true
+});
+
+// Initialize expirs and secur options
+pechivo.initialize({
+    expires : 3600, 
     secure : true
 });
 
@@ -86,7 +130,6 @@ And now all new cookies withot options has this options as default.
 Also can reset all options to default with `pechivo.resetOptions` method.
 
 #### pechivo.resetOptions()
-*Alias: pechivo.resetOptions()*
 
 Unset all setted cookies options to deafault.
 
@@ -99,7 +142,6 @@ pechivo.resetOptions();
 ``` 
 
 #### pechivo.set(key, value [, options])
-*Alias: pechivo(key, value [, options])*
 
 Sets a cookie in the document. If the cookie already exist, it will be rewrite it.
 
@@ -114,6 +156,7 @@ Also can reset all options to default with `pechivo.resetOptions` method.
 
 **Example Usage**
 ```javascript
+
 // Setting a cookie value
 pechivo.set('key', 'value');
 
@@ -131,7 +174,6 @@ pechivo('key', 'value', { secure: true });
 ```
 
 #### pechivo.get(key)
-*Alias: pechivo.get(key)*
 
 Returns the value of the most locally scoped cookie with the specified key.
 
@@ -151,7 +193,6 @@ pechivo.get(); // cookies [{id : id, name  : name, value : value},{...}]
 ```  
     
 #### pechivo.unset(key)
-*Alias: pechivo.unset(key)*
 
 Unse the most locally scoped cookie with the specified key.
 
