@@ -205,7 +205,7 @@
 
                 document.cookie = updatedCookie;
                 
-                if(this.debug) {
+                if(this.debug && value) {
                     
                     console.log('%c Cookie with name ' + name + ' and value ' + value + ' was created/updated', 'background: #000; color: #ffff00');
                 }
@@ -325,7 +325,7 @@
             
             if(this.debug) {
                 
-                console.log('%c Cookie with name ' + name + ' deleted.' +  options[key], 'background: #000; color: #ffff00');
+                console.log('%c Cookie with name ' + name + ' deleted.', 'background: #000; color: #ffff00');
             }
 
         };
