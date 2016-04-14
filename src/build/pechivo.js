@@ -71,9 +71,10 @@
 
         /**
          * If TRUE cookie will only be sent over secure connections.
+         * Deprecated on this monent and dosen't use
          * @param {boolean|string} secure
          */
-        pechivo.secure = false;
+        //pechivo.secure = false;
 
         /**
          * Encode cookie value
@@ -92,8 +93,8 @@
         pechivo.resetOptions = function() {
             this.expires = 0;
             this.path    = '/';
-            this.domain  = '';
-            this.secure  = false;
+            this.domain  = '';         
+            //this.secure  = false;
         };
         
         /**
@@ -189,7 +190,7 @@
                 options = this.__setExpires(options);
                 options = this.__setDomain(options);
                 options = this.__setPath(options);
-                options = this.__setSecure(options);
+                // options = this.__setSecure(options);
 
                 var updatedCookie = name + "=" + this.__encode(value);
 
@@ -284,9 +285,14 @@
 
         /**
          * Set cookie expires param from setted param or get default value
+		 *
+ 		 * Deprecated on this moment and dosen't use
+ 		 *
          * @param   {object} options cookie options
          * @returns {object} options prepared cookie options
          */
+
+        /*
         pechivo.__setSecure = function(options) {
 
             var secure = options.secure ? options.secure : this.secure;
@@ -298,6 +304,7 @@
 
             return options;
         };
+        */
 
         /**
          * Endcode value if encode param is set true
