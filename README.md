@@ -77,6 +77,7 @@ pechivo.domain = 'www.example.com'; // Set www.example.com as default domain
 ```
 #### Secure
 A boolean value of whether or not the cookie should only be available over SSL. By default is _false_.
+
 _Just now it deprecated and dosen't use._
 
 **Example Usage**
