@@ -23,7 +23,7 @@ The following browsers have passed all of the automated Cookies.js tests:
 
 ## Getting the Library
 #### Direct downloads
-[v1.0.0 Minified](https://raw.githubusercontent.com/evgv/pechivo/master/src/build/pechivo.min.js) (~ 2.6 KB)                          
+[v1.0.0 Minified](https://raw.githubusercontent.com/evgv/pechivo/master/src/build/pechivo.min.js) (~ 2.47 KB)                          
 [v1.0.0 Unminified](https://raw.githubusercontent.com/evgv/pechivo/master/src/build/pechivo.js) (~ 10.4 KB)
 
 
@@ -77,6 +77,7 @@ pechivo.domain = 'www.example.com'; // Set www.example.com as default domain
 ```
 #### Secure
 A boolean value of whether or not the cookie should only be available over SSL. By default is _false_.
+_Just now it deprecated and dosen't use._
 
 **Example Usage**
 ```javascript
@@ -116,13 +117,11 @@ pechivo.initialize({
     expires : 3600, 
     path : '/', 
     domain : 'www.example.com',
-    secure : true
 });
 
-// Initialize expirs and secur options
+// Initialize expires
 pechivo.initialize({
     expires : 3600, 
-    secure : true
 });
 
 ``` 
@@ -150,7 +149,7 @@ Sets a cookie in the document. If the cookie already exist, it will be rewrite i
 | *expires* | A number (of seconds), a number parsable string, or a `Date` object of when the cookie will expire | `0`         |
 | *path*    | A string value of the path of the cookie                                                           | `/`         |
 | *domain*  | A string value of the domain of the cookie                                                         | `empty`     |
-| *secure*  | A boolean value of whether or not the cookie should only be available over SSL                     | `false`     |
+| *secure*  | A boolean value of whether or not the cookie should only be available over SSL  (deprecated)       | `false`     |
 
 Also can reset all options to default with `pechivo.resetOptions` method.
 
@@ -161,7 +160,7 @@ Also can reset all options to default with `pechivo.resetOptions` method.
 pechivo.set('key', 'value');
 
 // Setting cookies with additional options
-pechivo.set('key', 'value', { domain: 'www.example.com', secure: true });
+pechivo.set('key', 'value', { domain: 'www.example.com'});
 
 // Setting cookies with expiration values
 pechivo.set('key', 'value', { expires: 3600 }); // Expires in 1 hour
