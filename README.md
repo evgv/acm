@@ -80,11 +80,7 @@ A boolean value of whether or not the cookie should only be available over SSL. 
 
 _Just now it deprecated and dosen't use._
 
-**Example Usage**
-```javascript
-pechivo.secure = true; // enable
-pechivo.secure = false; // disable
-```
+
 ### Additional properties
 
 #### Debug
