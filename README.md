@@ -1,5 +1,4 @@
-# acm.js
-### Advanced Cookie Manager
+# Advanced Cookie Manager
 
 Small client-side javascript library that makes managing cookies easy.
 
