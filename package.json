@@ -1,11 +1,11 @@
 {
-    "name"          : "acm",
+    "name"          : "advanced-cookie-manager",
     "version"       : "0.1.2",
-    "description"   :"Advanced Cookie Manager. Small client-side javascript library that makes managing cookies easy.",
-    "main"          :"src/build/acm.js",
-    "repository"    :"https://github.com/evgv/acm.git",
-    "author"        :"evgv",
-    "license"       :"MIT",
+    "description"   : "Advanced Cookie Manager. Small client-side javascript library that makes managing cookies easy.",
+    "main"          : "src/build/acm.js",
+    "repository"    : "https://github.com/evgv/acm.git",
+    "author"        : "evgv",
+    "license"       : "MIT",
     
     "devDependencies" : {
         "grunt"                 : "~0.4.x",
