@@ -1,4 +1,5 @@
-# pechivo.js
+# acm.js
+### Advanced Cookie Manager
 
 Small client-side javascript library that makes managing cookies easy.
 
@@ -23,8 +24,8 @@ The following browsers have passed all of the automated Cookies.js tests:
 
 ## Getting the Library
 #### Direct downloads
-[v1.0.0 Minified](https://raw.githubusercontent.com/evgv/pechivo/master/src/build/pechivo.min.js) (~ 2.47 KB)                          
-[v1.0.0 Unminified](https://raw.githubusercontent.com/evgv/pechivo/master/src/build/pechivo.js) (~ 10.4 KB)
+[v1.0.0 Minified](https://raw.githubusercontent.com/evgv/acm/master/src/build/acm.min.js) (~ 2.47 KB)                          
+[v1.0.0 Unminified](https://raw.githubusercontent.com/evgv/acm/master/src/build/acm.js) (~ 10.4 KB)
 
 
 ## API Reference
@@ -40,11 +41,11 @@ The following browsers have passed all of the automated Cookies.js tests:
 [Encode](#encode)                                                                                                                     
 
 **Methods**  
-[pechivo.initialize(options)](#pechivo-initialize)  
-[pechivo.resetOptions()](#pechivo-resetoptions)  
-[pechivo.set(key, value [, options])](#pechivo-set)  
-[pechivo.get(key)](#pechivo-get)  
-[pechivo.unset(key)](#pechivo-unset)
+[acm.initialize(options)](#initialize)  
+[acm.resetOptions()](#reset options)  
+[acm.set(key, value [, options])](#set)  
+[acm.get(key)](#get)  
+[acm.unset(key)](#unset)
 
 ### Properties
 
@@ -53,9 +54,9 @@ A number (of seconds), a number parsable string, or a `Date` object of when the 
 
 **Example Usage**
 ```javascript
-pechivo.expires = 3600; // Expires number format 1 hour
-pechivo.expires = '3600'; // Expires string format 1 hour
-pechivo.expires = new Date(2020, 0, 1); // Expires at Wed Jan 01 2020 00:00:00 GMT+0200
+acm.expires = 3600; // Expires number format 1 hour
+acm.expires = '3600'; // Expires string format 1 hour
+acm.expires = new Date(2020, 0, 1); // Expires at Wed Jan 01 2020 00:00:00 GMT+0200
 ```
 
 #### Path
@@ -63,9 +64,9 @@ A string value of the path of the cookie. By default is '/'.
 
 **Example Usage**
 ```javascript
-pechivo.path = '/'; // Path for all pages
-pechivo.path = '/cart'; // Path only for /cart page
-pechivo.path = '/success'; // Path only for /success page
+acm.path = '/'; // Path for all pages
+acm.path = '/cart'; // Path only for /cart page
+acm.path = '/success'; // Path only for /success page
 ```
 
 #### Domain
@@ -73,7 +74,7 @@ A string value of the domain of the cookie. By default is equal to current domai
 
 **Example Usage**
 ```javascript
-pechivo.domain = 'www.example.com'; // Set www.example.com as default domain
+acm.domain = 'www.example.com'; // Set www.example.com as default domain
 ```
 #### Secure
 A boolean value of whether or not the cookie should only be available over SSL. By default is _false_.
@@ -88,21 +89,21 @@ Enable debug option set show in console information about create/delee cookie.
 
 **Example Usage**
 ```javascript
-pechivo.debug = false; // disable
-pechivo.debug = true; // enable
+acm.debug = false; // disable
+acm.debug = true; // enable
 ```
 #### Encode
 Set encode cookie _encodeUri()_ value (encode by default), you can disable/enable this option.
 
 **Example Usage**
 ```javascript
-pechivo.encode = false; // disable
-pechivo.encode = true; // enable
+acm.encode = false; // disable
+acm.encode = true; // enable
 ```
 
 ### Methods
 
-#### pechivo.initialize(options)
+#### acm.initialize(options)
 
 Set default options for all new cookies
 
@@ -110,22 +111,22 @@ Set default options for all new cookies
 ```javascript
 
 // Initialize all options 
-pechivo.initialize({
+acm.initialize({
     expires : 3600, 
     path : '/', 
     domain : 'www.example.com',
 });
 
 // Initialize expires
-pechivo.initialize({
+acm.initialize({
     expires : 3600, 
 });
 
 ``` 
 And now all new cookies withot options has this options as default.
-Also can reset all options to default with `pechivo.resetOptions` method.
+Also can reset all options to default with `acm.resetOptions` method.
 
-#### pechivo.resetOptions()
+#### acm.resetOptions()
 
 Unset all setted cookies options to deafault.
 
@@ -133,11 +134,11 @@ Unset all setted cookies options to deafault.
 ```javascript
 
 // Reset options to deafult 
-pechivo.resetOptions();
+acm.resetOptions();
 
 ``` 
 
-#### pechivo.set(key, value [, options])
+#### acm.set(key, value [, options])
 
 Sets a cookie in the document. If the cookie already exist, it will be rewrite it.
 
@@ -148,28 +149,28 @@ Sets a cookie in the document. If the cookie already exist, it will be rewrite i
 | *domain*  | A string value of the domain of the cookie                                                         | `empty`     |
 | *secure*  | A boolean value of whether or not the cookie should only be available over SSL  (deprecated)       | `false`     |
 
-Also can reset all options to default with `pechivo.resetOptions` method.
+Also can reset all options to default with `acm.resetOptions` method.
 
 **Example Usage**
 ```javascript
 
 // Setting a cookie value
-pechivo.set('key', 'value');
+acm.set('key', 'value');
 
 // Setting cookies with additional options
-pechivo.set('key', 'value', { domain: 'www.example.com'});
+acm.set('key', 'value', { domain: 'www.example.com'});
 
 // Setting cookies with expiration values
-pechivo.set('key', 'value', { expires: 3600 }); // Expires in 1 hour
-pechivo.set('key', 'value', { expires: '3600' }); // Expires in 1 hour
-pechivo.set('key', 'value', { expires: new Date(2020, 0, 1) }); // Expires at Wed Jan 01 2020 00:00:00 GMT+0200
+acm.set('key', 'value', { expires: 3600 }); // Expires in 1 hour
+acm.set('key', 'value', { expires: '3600' }); // Expires in 1 hour
+acm.set('key', 'value', { expires: new Date(2020, 0, 1) }); // Expires at Wed Jan 01 2020 00:00:00 GMT+0200
 
 
 // Using the alias
-pechivo('key', 'value', { secure: true });
+acm('key', 'value', { secure: true });
 ```
 
-#### pechivo.get(key)
+#### acm.get(key)
 
 Returns the value of the most locally scoped cookie with the specified key.
 
@@ -177,18 +178,18 @@ Returns the value of the most locally scoped cookie with the specified key.
 ```javascript
 
 // Get the cookie value
-pechivo.get('key'); // "value"
+acm.get('key'); // "value"
 ```
 
-If `key` is empty ` pechivo()` method return all locally scoped cookies as JSON object.
+If `key` is empty ` acm()` method return all locally scoped cookies as JSON object.
 
 **Example Usage**
 ```javascript
 // Get all cookies
-pechivo.get(); // cookies [{id : id, name  : name, value : value},{...}]
+acm.get(); // cookies [{id : id, name  : name, value : value},{...}]
 ```  
     
-#### pechivo.unset(key)
+#### acm.unset(key)
 
 Unse the most locally scoped cookie with the specified key.
 
@@ -196,6 +197,6 @@ Unse the most locally scoped cookie with the specified key.
 ```javascript
 
 // Unset the cookie 
-pechivo.unset('key');
+acm.unset('key');
 ``` 
     
