@@ -1,16 +1,17 @@
 /**
- * pechivo v1.0.0
- * https://github.com/evgv/pechivo
+ * acm v1.0.2
+ * Advanced Cookie Manager
+ * https://github.com/evgv/acm
  *
  * Copyright 2016 Zubkov Evgen
- * Released under the GNU GPL
+ * Released under the MIT
  */
 
 
 
 /**
  *
- * Create scope for pechivo.js
+ * Create scope for acm.js
  +
  * @param {object}    global      - window
  * @param {object}    environment - navigator
@@ -23,8 +24,8 @@
     /**
      * Factory method 
      * 
-     * @throws {Error}  pechivo.js requires a `window` with a `document` object' 
-     * @throws {Error}  pechivo.js requires a cookie enabled
+     * @throws {Error}  acm.js requires a `window` with a `document` object' 
+     * @throws {Error}  acm.js requires a cookie enabled
      * @param  {object} window
      * @param  {object} navigator 
      */
@@ -34,63 +35,63 @@
          * Check window object on exist
          */
         if (typeof window.document !== 'object') {
-            throw new Error('pechivo.js requires a `window` with a `document` object');
+            throw new Error('acm.js requires a `window` with a `document` object');
         }
 
         /**
          * Check cookie enabled
          */
         if (navigator.cookieEnabled !== true) {
-            throw new Error('pechivo.js requires a cookie enabled');
+            throw new Error('acm.js requires a cookie enabled');
         }
         
         /**
          * Main instance
          */
-        var pechivo = function() {}
+        var acm = function() {}
         
         /**
          * Lifetime of the session cookie, defined in seconds. 
          * @param {string|number|data} expires
          */
-        pechivo.expires = 0;
+        acm.expires = 0;
 
         /**
          * Path on the domain where the cookie will work. 
          * Use a single slash ('/') for all paths on the domain.
          * @param {string} path 
          */
-        pechivo.path = '/';
+        acm.path = '/';
 
         /**
          * Cookie domain, for example 'www.example.com'.
          * To make cookies visible on all subdomains then the domain must be prefixed with a dot like '.example.com'.
          * @param {string} domain
          */
-        pechivo.domain = '';
+        acm.domain = '';
 
         /**
          * If TRUE cookie will only be sent over secure connections.
          * Deprecated on this monent and dosen't use
          * @param {boolean|string} secure
          */
-        //pechivo.secure = false;
+        //acm.secure = false;
 
         /**
          * Encode cookie value
          * @param {boolean} encode 
          */
-        pechivo.encode = true;
+        acm.encode = true;
         
         /**
          * Debug logs
          */
-        pechivo.debug = false;
+        acm.debug = false;
                 
         /**
          * Reset options
          */
-        pechivo.resetOptions = function() {
+        acm.resetOptions = function() {
             this.expires = 0;
             this.path    = '/';
             this.domain  = '';         
@@ -102,15 +103,15 @@
          * 
          * @param {object} options
          */
-        pechivo.initialize = function(options) {
+        acm.initialize = function(options) {
             
             if(typeof options !== 'object') {
                 return;
             }
             
             for (var key in options){
-                if (options.hasOwnProperty(key) && pechivo.hasOwnProperty(key)) {
-                    pechivo.key = options[key];
+                if (options.hasOwnProperty(key) && acm.hasOwnProperty(key)) {
+                    acm.key = options[key];
                     
                     if(this.debug) {
                         
@@ -129,7 +130,7 @@
          * @param   {string} name  cookie name
          * @returns {string}       cookie value
          */
-        pechivo.get = function(name) {
+        acm.get = function(name) {
 
             if(typeof name !== 'undefined') {
                 var expression = new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"),
@@ -156,7 +157,7 @@
          *    
          * @returns {object} all retrieved cookies as array
          */
-        pechivo.__getAll = function() {
+        acm.__getAll = function() {
 
             var list      = document.cookie.split(';'),
                 jsonArray = { cookies: [] };      
@@ -181,7 +182,7 @@
          * @param {string} value        cookie value
          * @param {object} options={}   cookie options
          */
-        pechivo.set = function(name, value, options) {
+        acm.set = function(name, value, options) {
 
             if(typeof name !== 'undefined' && typeof value !== 'undefined') {
                 
@@ -218,7 +219,7 @@
          * @param   {object} options cookie options
          * @returns {object} options prepared cookie options
          */
-        pechivo.__setExpires = function(options) {
+        acm.__setExpires = function(options) {
 
             var expires = options.expires ? options.expires : this.expires;
             
@@ -247,7 +248,7 @@
          * @param   {object} options cookie options
          * @returns {object} options prepared cookie options
          */
-        pechivo.__setDomain = function(options) {
+        acm.__setDomain = function(options) {
 
           var domain = options.domain ? options.domain : this.domain;
 
@@ -271,7 +272,7 @@
          * @param   {object} options cookie options
          * @returns {object} options prepared cookie options
          */
-        pechivo.__setPath = function(options) {
+        acm.__setPath = function(options) {
 
             var path = options.path ? options.path : this.path;
 
@@ -293,7 +294,7 @@
          */
 
         /*
-        pechivo.__setSecure = function(options) {
+        acm.__setSecure = function(options) {
 
             var secure = options.secure ? options.secure : this.secure;
 
@@ -311,7 +312,7 @@
          * @param   {string} value will be encoded with encodeURIComponent
          * @returns {string} prepared value
          */
-        pechivo.__encode = function(value) {
+        acm.__encode = function(value) {
 
             if (this.encode !== 'undefined' && this.encode) {
                 
@@ -325,7 +326,7 @@
          * Unset cookie by name
          * @param {string} name cookie name
          */
-        pechivo.unset = function(name) {
+        acm.unset = function(name) {
 
             var options = {expires : -1, path : '/'};
             this.set(name, '', options);
@@ -341,14 +342,14 @@
         /**
          * Return main insance
          */
-        return pechivo;
+        return acm;
 
     };
     
     /**
-     * Create pechivo instance 
+     * Create acm instance 
      */
-    var pechivoExport = typeof global.document === 'object' ? factory(global, environment) : factory;
+    var acmExport = typeof global.document === 'object' ? factory(global, environment) : factory;
     
     
     
@@ -358,7 +359,7 @@
     if (typeof define === 'function' && define.amd) {
         
         define(function () { 
-            return pechivoExport; 
+            return acmExport; 
         });
         
     /**
@@ -370,20 +371,20 @@
         * Support Node.js specific `module.exports` (which can be a function)
         */
         if (typeof module === 'object' && typeof module.exports === 'object') {
-            exports = module.exports = pechivoExport;
+            exports = module.exports = acmExport;
         }
         
        /**
         * But always support CommonJS module 1.1.1 spec (`exports` cannot be a function)
         */
-        exports.pechivo = pechivoExport;
+        exports.acm = acmExport;
         
     /**
      * Native JS export 
      */
     } else {
         
-        global.pechivo = pechivoExport;
+        global.acm = acmExport;
     }
     
 })(typeof window === 'undefined' ? this : window, navigator);
