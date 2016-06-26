@@ -7,16 +7,16 @@ module.exports = function(grunt) {
             dist: {
                 src: [
                     'src/lib/*.js',
-                    'src/pechivo.js'
+                    'src/stage/acm.js'
                 ],
-                dest: 'src/build/pechivo.js',
+                dest: 'src/build/acm.js',
             }
         },
         
         uglify: {
             build: {
-                src: 'src/build/pechivo.js',
-                dest: 'src/build/pechivo.min.js'
+                src: 'src/build/acm.js',
+                dest: 'src/build/acm.min.js'
             }
         },
 
