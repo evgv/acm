@@ -24,8 +24,8 @@ The following browsers have passed all of the automated Cookies.js tests:
 
 ## Getting the Library
 #### Direct downloads
-[v1.0.0 Minified](https://raw.githubusercontent.com/evgv/acm/master/src/build/acm.min.js) (~ 2.47 KB)                          
-[v1.0.0 Unminified](https://raw.githubusercontent.com/evgv/acm/master/src/build/acm.js) (~ 10.4 KB)
+[v1.0.2 Minified](https://raw.githubusercontent.com/evgv/acm/master/src/build/acm.min.js) (~ 2.47 KB)                          
+[v1.0.2 Unminified](https://raw.githubusercontent.com/evgv/acm/master/src/build/acm.js) (~ 10.4 KB)
 
 
 ## API Reference
