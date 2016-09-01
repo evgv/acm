@@ -12,7 +12,7 @@
 /**
  *
  * Create scope for acm.js
- +
+ *
  * @param {object}    global      - window
  * @param {object}    environment - navigator
  * @param {undefined} undefined   - undefined
