@@ -1,5 +1,7 @@
 # Advanced Cookie Manager
 
+## v 1.1.4 (02192017)
+
 Small client-side javascript library that makes managing cookies easy.
 
 [Features](#features)  
@@ -23,26 +25,15 @@ The following browsers have passed all of the automated Cookies.js tests:
 
 ## Getting the Library
 #### Direct downloads
-[v1.0.2 Minified](https://raw.githubusercontent.com/evgv/acm/master/src/build/acm.min.js) (~ 2.47 KB)                          
-[v1.0.2 Unminified](https://raw.githubusercontent.com/evgv/acm/master/src/build/acm.js) (~ 10.4 KB)
+[v1.1.4](https://raw.githubusercontent.com/evgv/acm/master/src/build/acm.js) (~ 13.94 KB)
+[v1.1.4 Minified](https://raw.githubusercontent.com/evgv/acm/master/src/build/acm.min.js) (~ 2.52 KB)
 
 
-## API Reference
-
-**Properties**  
-[Expires](#expires)                                                                                                                   
-[Path](#path)                                                                                                                         
-[Domain](#domain)                                                                                                                     
-[Secure](#secure)                                                                                                                     
-
-**Additional properties**                                                                                                             
-[Debug](#debyg)                                                                                                                       
-[Encode](#encode)                                                                                                                     
+## API Reference                                                                                                                   
 
 **Methods**  
 [acm.initialize(options)](#initialize)  
-[acm.resetOptions()](#reset options)  
-[acm.set(key, value [, options])](#set)  
+[acm.set(key, value, options = {})](#set)  
 [acm.get(key)](#get)  
 [acm.unset(key)](#unset)
 
@@ -69,7 +60,7 @@ acm.path = '/success'; // Path only for /success page
 ```
 
 #### Domain
-A string value of the domain of the cookie. By default is equal to current domain. 
+A string value of the domain of the cookie. By default is equal to current domain.
 
 **Example Usage**
 ```javascript
@@ -109,33 +100,20 @@ Set default options for all new cookies
 **Example Usage**
 ```javascript
 
-// Initialize all options 
+// Initialize all options
 acm.initialize({
-    expires : 3600, 
-    path : '/', 
+    expires : 3600,
+    path : '/',
     domain : 'www.example.com',
 });
 
 // Initialize expires
 acm.initialize({
-    expires : 3600, 
+    expires : 3600,
 });
 
-``` 
-And now all new cookies withot options has this options as default.
-Also can reset all options to default with `acm.resetOptions` method.
-
-#### acm.resetOptions()
-
-Unset all setted cookies options to deafault.
-
-**Example Usage**
-```javascript
-
-// Reset options to deafult 
-acm.resetOptions();
-
-``` 
+```
+And now all new cookies without options has this options as default.
 
 #### acm.set(key, value [, options])
 
@@ -147,8 +125,6 @@ Sets a cookie in the document. If the cookie already exist, it will be rewrite i
 | *path*    | A string value of the path of the cookie                                                           | `/`         |
 | *domain*  | A string value of the domain of the cookie                                                         | `empty`     |
 | *secure*  | A boolean value of whether or not the cookie should only be available over SSL  (deprecated)       | `false`     |
-
-Also can reset all options to default with `acm.resetOptions` method.
 
 **Example Usage**
 ```javascript
@@ -164,9 +140,6 @@ acm.set('key', 'value', { expires: 3600 }); // Expires in 1 hour
 acm.set('key', 'value', { expires: '3600' }); // Expires in 1 hour
 acm.set('key', 'value', { expires: new Date(2020, 0, 1) }); // Expires at Wed Jan 01 2020 00:00:00 GMT+0200
 
-
-// Using the alias
-acm('key', 'value', { secure: true });
 ```
 
 #### acm.get(key)
@@ -180,14 +153,16 @@ Returns the value of the most locally scoped cookie with the specified key.
 acm.get('key'); // "value"
 ```
 
-If `key` is empty ` acm()` method return all locally scoped cookies as JSON object.
+If `key` is empty ` acm()` method return all locally scoped cookies as array of items (cookies).
 
 **Example Usage**
 ```javascript
+
 // Get all cookies
-acm.get(); // cookies [{id : id, name  : name, value : value},{...}]
+acm.get(); // [[name  : name, value : value], [...], ...}]
+
 ```  
-    
+
 #### acm.unset(key)
 
 Unse the most locally scoped cookie with the specified key.
@@ -195,7 +170,6 @@ Unse the most locally scoped cookie with the specified key.
 **Example Usage**
 ```javascript
 
-// Unset the cookie 
+// Unset the cookie
 acm.unset('key');
-``` 
-    
+```
