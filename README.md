@@ -24,7 +24,7 @@ The following browsers have passed all of the automated Cookies.js tests:
 - Internet Explorer 6+
 
 ## Install
-#### Direct downloads
+#### Direct download
 [v1.1.4](https://raw.githubusercontent.com/evgv/acm/master/src/build/acm.js) (~ 13.94 KB)
 [v1.1.4 Minified](https://raw.githubusercontent.com/evgv/acm/master/src/build/acm.min.js) (~ 2.52 KB)
 
