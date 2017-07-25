@@ -27,6 +27,10 @@ The following browsers have passed all of the automated Cookies.js tests:
 #### Direct downloads
 [v1.1.4](https://raw.githubusercontent.com/evgv/acm/master/src/build/acm.js) (~ 13.94 KB)
 [v1.1.4 Minified](https://raw.githubusercontent.com/evgv/acm/master/src/build/acm.min.js) (~ 2.52 KB)
+### Install with npm
+```bash
+    npm i advanced-cookie-manager
+```
 
 
 ## API Reference                                                                                                                   
