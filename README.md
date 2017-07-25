@@ -6,7 +6,7 @@ Small client-side javascript library that makes managing cookies easy.
 
 [Features](#features)  
 [Browser Compatibility](#browser-compatibility)  
-[Getting the Library](#getting-the-library)  
+[Install](#install)  
 [API Reference](#api-reference)
 
 ## Features
@@ -23,11 +23,12 @@ The following browsers have passed all of the automated Cookies.js tests:
 - Opera 10+
 - Internet Explorer 6+
 
-## Getting the Library
+## Install
 #### Direct downloads
 [v1.1.4](https://raw.githubusercontent.com/evgv/acm/master/src/build/acm.js) (~ 13.94 KB)
 [v1.1.4 Minified](https://raw.githubusercontent.com/evgv/acm/master/src/build/acm.min.js) (~ 2.52 KB)
-### Install with npm
+
+#### Use npm
 ```bash
     npm i advanced-cookie-manager
 ```
