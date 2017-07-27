@@ -32,7 +32,10 @@ The following browsers have passed all of the automated Cookies.js tests:
 ```bash
     npm i advanced-cookie-manager
 ```
-
+#### Use yarn
+```bash
+    yarn add advanced-cookie-manager
+```
 
 ## API Reference                                                                                                                   
 
